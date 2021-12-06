@@ -1,16 +1,21 @@
 import React from 'react'
 import { Dimensions, StyleSheet, View } from 'react-native'
-import { MotiView } from 'moti'
+import { MotiView, motify } from 'moti'
 import { Colors } from '../utils/Colors'
+import LinearGradient from 'react-native-linear-gradient'
 
 const { height } = Dimensions.get('window')
 export const HEADER_HEIGHT = height * 0.27
+const MotiLinearGradient = motify(LinearGradient)()
 
-export const ColorHeaderBackground = ({ color }) => {
+export const ColorHeaderBackground = ({ colors }) => {
   return (
-    <MotiView
+    <MotiLinearGradient
+      colors={colors ?? Colors.gradientMainScreen}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       key="backgroundView"
-      style={[s.backgroundView, { backgroundColor: color ?? Colors.accent }]}
+      style={[s.backgroundView]}
       from={{ height: 0 }}
       exit={{ height: 0 }}
       animate={{ height: HEADER_HEIGHT }}
@@ -27,6 +32,5 @@ const s = StyleSheet.create({
     left: 0,
     right: 0,
     borderBottomRightRadius: 100,
-    backgroundColor: Colors.accent
   }
 })

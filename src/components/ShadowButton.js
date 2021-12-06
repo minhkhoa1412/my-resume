@@ -1,25 +1,27 @@
-import React from "react"
-import { StyleSheet, Text, Pressable } from "react-native"
-import { Colors } from "../utils/Colors"
+import React from 'react'
+import { StyleSheet, Text, Pressable } from 'react-native'
+import { Colors } from '../utils/Colors'
+import LinearGradient from 'react-native-linear-gradient'
 
 export const ButtonType = {
   POSITIVE: 1, NEGATIVE: 0
 }
 
-export const ShadowButton = ({ buttonType = ButtonType.POSITIVE, text, onPress }) => {
+export const ShadowButton = ({ colors, text, onPress }) => {
   return (
-    <Pressable
-      onPress={onPress}
-      style={[
-        s.button,
-        { backgroundColor: buttonType === ButtonType.POSITIVE ? Colors.accent : Colors.gray}
-      ]}
-    >
-      <Text
-        style={[s.textButton, { color: buttonType === ButtonType.POSITIVE ? 'white' : Colors.accent }]}
+    <Pressable onPress={onPress}>
+      <LinearGradient
+        colors={colors ?? Colors.gradientMainScreen}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={s.button}
       >
-        {text.toUpperCase()}
-      </Text>
+        <Text
+          style={[s.textButton]}
+        >
+          {text.toUpperCase()}
+        </Text>
+      </LinearGradient>
     </Pressable>
   )
 }
@@ -27,7 +29,7 @@ export const ShadowButton = ({ buttonType = ButtonType.POSITIVE, text, onPress }
 const s = StyleSheet.create({
   button: {
     backgroundColor: Colors.accent,
-    paddingHorizontal: 40,
+    paddingHorizontal: 26,
     paddingVertical: 10,
     borderRadius: 20,
     elevation: 5,
@@ -38,6 +40,8 @@ const s = StyleSheet.create({
     },
     shadowRadius: 6,
     shadowOpacity: 0.2,
+    marginRight: 10,
+    marginBottom: 10
   },
   textButton: {
     color: 'white',

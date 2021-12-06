@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { AnimatePresence, MotiView } from 'moti'
-import { HEADER_HEIGHT, ColorHeaderBackground } from '../../components/ColorHeaderBackground'
-import { PersonalInformation } from '../HomeScreen/components/PersonalInformation'
+import { ColorHeaderBackground } from '../../components/ColorHeaderBackground'
+import { Colors } from '../../utils/Colors'
 
 export const ProjectScreen = ({ navigation }) => {
   const [isFocus, setIsFocus] = useState(true)
@@ -20,7 +20,7 @@ export const ProjectScreen = ({ navigation }) => {
       <AnimatePresence>
         {isFocus && (
           <MotiView style={s.container}>
-            <ColorHeaderBackground color="#ff2200"/>
+            <ColorHeaderBackground colors={Colors.gradientProjectScreen} />
             <TouchableOpacity onPress={() => setIsFocus(false)} style={{
               position: 'absolute',
               bottom: 100,

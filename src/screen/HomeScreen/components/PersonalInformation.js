@@ -9,10 +9,12 @@ import { duration } from '../../../utils/Duration'
 
 const IMAGE_HEIGHT = 170
 const IMAGE_WIDTH = 120
-export const CARD_HEIGHT_EXPANDED = 230
+export const CARD_HEIGHT_EXPANDED = 270
 export const CARD_HEIGHT = 150
 
-export const PersonalInformation = ({ isExpanded, onPress, onPressNegative, navigation }) => {
+export const PersonalInformation = ({
+  isExpanded, onPress, onPressProject, onPressHistory, navigation
+}) => {
   const uri = 'https://i.natgeofe.com/n/46b07b5e-1264-42e1-ae4b-8a021226e2d0/domestic-cat_thumb_2x3.jpg'
 
   return (
@@ -43,20 +45,24 @@ export const PersonalInformation = ({ isExpanded, onPress, onPressNegative, navi
       <AnimatePresence>
         {isExpanded && (
           <MotiView
-            key="buttonRaw"
-            delay={200}
             from={{ opacity: 0, scale: 0 }}
             exit={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exitTranstion={{ duration: 100 }}
+            transition={{ duration: 300 }}
             style={s.buttonRow}>
             <ShadowButton
               text="resume"
             />
             <ShadowButton
-              buttonType={ButtonType.NEGATIVE}
+              colors={Colors.gradientProjectScreen}
               text="project"
-              onPress={onPressNegative}
+              onPress={onPressProject}
+            />
+            <ShadowButton
+              colors={Colors.gradientHistory}
+              text="Employment History"
+              onPress={onPressHistory}
             />
           </MotiView>
         )}
@@ -112,12 +118,13 @@ const s = StyleSheet.create({
     fontWeight: '600'
   },
   buttonRow: {
-    bottom: 68,
-    left: 0,
-    right: 0,
-    position: 'absolute',
+    flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingHorizontal: 20
+    padding: 14,
+    position: 'absolute',
+    top: 110,
+    bottom: 40,
+    left: 0,
+    right: 0
   }
 })

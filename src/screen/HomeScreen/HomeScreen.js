@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { CARD_HEIGHT, CARD_HEIGHT_EXPANDED, PersonalInformation } from './components/PersonalInformation'
 import { FloatingButton } from './components/FloatingButton'
@@ -11,6 +11,7 @@ import { HEADER_HEIGHT, ColorHeaderBackground } from '../../components/ColorHead
 
 export const HomeScreen = ({ navigation }) => {
   const safeAreaInset = useSafeAreaInsets()
+  const nextScreen = useRef()
   const [isFocus, setIsFocus] = useState(true)
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -28,8 +29,8 @@ export const HomeScreen = ({ navigation }) => {
     if (!isFocus) {
       setTimeout(() => {
         setIsExpanded(false)
-        navigation.navigate('Project')
-      }, 1500)
+        navigation.navigate(nextScreen.current)
+      }, 1000)
     }
   }, [isFocus])
 
@@ -50,7 +51,12 @@ export const HomeScreen = ({ navigation }) => {
                 onPress={() => {
                   setIsExpanded(!isExpanded)
                 }}
-                onPressNegative={() => {
+                onPressProject={() => {
+                  nextScreen.current = 'Project'
+                  setIsFocus(false)
+                }}
+                onPressHistory={() => {
+                  nextScreen.current = 'History'
                   setIsFocus(false)
                 }}
               />

@@ -19,7 +19,7 @@ export const Summary = () => {
         }}
         exitTransition={{
           type: 'timing',
-          duration: 700
+          duration: 200
         }}
       >
         Summary
@@ -33,7 +33,7 @@ export const Summary = () => {
           delay={duration.DELAY_SUMMARY_TEXT}
           exitTransition={{
             type: 'timing',
-            delay: 400 + (300 / (index + 1))
+            delay: 100 + (100 / (index + 1))
           }}
           transition={{
             type: 'timing',
