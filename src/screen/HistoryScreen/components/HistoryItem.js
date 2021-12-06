@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dimensions, StyleSheet, View, Text, Image } from 'react-native'
-import { MotiView } from 'moti'
+import { MotiImage, MotiView } from 'moti'
 
 const { width } = Dimensions.get('window')
 
@@ -9,13 +9,23 @@ export const HistoryItem = ({ children }) => {
 
   return (
     <MotiView
-      from={{ opacity: 0, scale: 0 }}
+      from={{
+        opacity: 0, transform: [{ scale: 0 }, { translateY: -200 }]
+      }}
       exit={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
+      animate={{
+        opacity: 1,
+        transform: [{ scale: 1 }, { translateY: 0 }]
+      }}
       style={s.container}
     >
-      <Image style={s.image} source={{ uri }} />
-      <View style={s.content}>
+      <Image
+        style={s.image}
+        source={{ uri }}
+      />
+      <View
+        style={s.content}
+      >
         <Text>asjdhasjkhfgasdhlfgjilk</Text>
         <Text>asjdhasjkhfgasdhlfgjilk</Text>
         <Text>asjdhasjkhfgasdhlfgjilk</Text>
@@ -34,7 +44,14 @@ const s = StyleSheet.create({
     borderRadius: 20,
     paddingVertical: 16,
     paddingHorizontal: 10,
-    marginBottom: 40
+    marginBottom: 40,
+    elevation: 5,
+    shadowOffset: {
+      width: 0,
+      height: 6
+    },
+    shadowRadius: 10,
+    shadowOpacity: 0.3
   },
   content: {
     backgroundColor: '#A770EF',

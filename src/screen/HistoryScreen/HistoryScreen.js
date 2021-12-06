@@ -51,14 +51,6 @@ const s = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    alignItems: 'center',
-    elevation: 5,
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 6
-    },
-    shadowRadius: 10,
-    shadowOpacity: 0.3
+    alignItems: 'center'
   }
 })
