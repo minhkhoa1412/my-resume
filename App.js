@@ -27,14 +27,14 @@ const App = () => {
             name="Home"
             component={HomeScreen}
             options={{
-              cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
+              cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
             }}
           />
           <Stack.Screen
             name="Project"
             component={ProjectScreen}
             options={{
-              cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
+              cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
             }}
           />
         </Stack.Navigator>

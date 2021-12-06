@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { View, StyleSheet, Dimensions } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { CARD_HEIGHT, CARD_HEIGHT_EXPANDED, PersonalInformation } from './components/PersonalInformation'
 import { FloatingButton } from './components/FloatingButton'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { AnimatePresence, MotiView } from 'moti'
 import { Colors } from '../../utils/Colors'
 import { Summary } from './components/Summary'
-import { useFocusEffect } from '@react-navigation/native'
 import { duration } from '../../utils/Duration'
-
-const { height } = Dimensions.get('window')
-const COLOR_HEIGHT_FROM = height * 0.27
-const COLOR_HEIGHT_TO = height * 0.35
+import { HEADER_HEIGHT, ColorHeaderBackground } from '../../components/ColorHeaderBackground'
 
 export const HomeScreen = ({ navigation }) => {
   const safeAreaInset = useSafeAreaInsets()
-  const [backgroundHeight, setBackgroundHeight] = useState(COLOR_HEIGHT_FROM)
   const [isFocus, setIsFocus] = useState(true)
   const [isExpanded, setIsExpanded] = useState(false)
 
   useEffect(() => {
-    const listener = navigation.addListener('focus', () => setIsFocus(true))
+    const listener = navigation.addListener('focus', () => {
+      setTimeout(() => setIsFocus(true), 300)
+    })
 
     return () => {
       listener?.()
@@ -36,28 +33,16 @@ export const HomeScreen = ({ navigation }) => {
     }
   }, [isFocus])
 
-  function backgroundView() {
-    return (
-      <MotiView
-        key="backgroundView"
-        style={s.backgroundView}
-        from={{ height: 0 }}
-        exit={{ height: 0 }}
-        animate={{ height: backgroundHeight }}
-        exitTransition={{ type: 'timing' }}
-      />
-    )
-  }
 
   return (
     <View style={s.container}>
       <AnimatePresence>
         {isFocus && (
           <MotiView style={s.container}>
-            {backgroundView()}
+            <ColorHeaderBackground />
             <MotiView
               style={s.containerPersonalInformation}
-              animate={{ top: backgroundHeight - 70 }}
+              animate={{ top: HEADER_HEIGHT - 70 }}
             >
               <PersonalInformation
                 navigation={navigation}
@@ -79,7 +64,7 @@ export const HomeScreen = ({ navigation }) => {
                 padding: 20,
                 paddingTop: 30
               }}
-              animate={{ marginTop: backgroundHeight + (isExpanded ? CARD_HEIGHT_EXPANDED : CARD_HEIGHT) - 70 }}
+              animate={{ marginTop: HEADER_HEIGHT + (isExpanded ? CARD_HEIGHT_EXPANDED : CARD_HEIGHT) - 70 }}
               transition={{ delay: isExpanded ? 0 : duration.DELAY_HEIGHT_CARD_VIEW }}
             >
               <Summary/>

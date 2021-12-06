@@ -84,7 +84,8 @@ const s = StyleSheet.create({
     shadowRadius: 10,
     shadowOpacity: 0.3,
     padding: 16,
-    paddingLeft: IMAGE_WIDTH
+    paddingLeft: IMAGE_WIDTH,
+    height: CARD_HEIGHT
   },
   avatar: {
     position: 'absolute',
