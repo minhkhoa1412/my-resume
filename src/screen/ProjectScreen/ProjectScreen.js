@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { AnimatePresence, MotiView } from 'moti'
 import { ColorHeaderBackground } from '../../components/ColorHeaderBackground'
 import { colors } from '../../utils/Colors'

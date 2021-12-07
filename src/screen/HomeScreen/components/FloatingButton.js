@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, StyleSheet, Text, View, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Pressable } from 'react-native'
 import { colors } from '../../../utils/Colors'
 import { MotiView } from 'moti'
 import { duration } from '../../../utils/Duration'
@@ -7,6 +7,7 @@ import { fonts } from '../../../utils/Fonts'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 const BUTTON_HEIGHT = RFValue(50)
+const BUTTON_WIDTH = RFValue(50)
 
 export const FloatingButton = () => {
   const motiViewSpring = (style, children) => (
@@ -73,7 +74,7 @@ const s = StyleSheet.create({
     fontFamily: fonts.poppinsBold
   },
   secondaryButton: {
-    width: BUTTON_HEIGHT,
+    width: BUTTON_WIDTH,
     height: BUTTON_HEIGHT,
     backgroundColor: colors.gray,
     borderRadius: 18,

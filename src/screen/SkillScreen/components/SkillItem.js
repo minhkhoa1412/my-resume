@@ -3,8 +3,6 @@ import { StyleSheet, Text, View } from 'react-native'
 import { colors } from '../../../utils/Colors'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { fonts } from '../../../utils/Fonts'
-import { MotiView } from 'moti'
-import { Easing } from 'react-native-reanimated'
 
 export const SkillItem = ({ text }) => {
   return (

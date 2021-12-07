@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import { myCV } from '../../../data/cv'
 import { MotiText } from 'moti'
 import { duration } from '../../../utils/Duration'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, Platform, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Platform, StatusBar, StyleSheet, Text } from 'react-native'
 import { motify } from 'moti'
 import { colors, colors as systemColors } from '../utils/Colors'
 import LinearGradient from 'react-native-linear-gradient'

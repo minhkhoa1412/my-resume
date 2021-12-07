@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { Pressable, StyleSheet, Text } from 'react-native'
 import { Avatar } from './Avatar'
 import { MotiText, MotiView, AnimatePresence } from 'moti'
 import { myCV } from '../../../data/cv'
 import { colors } from '../../../utils/Colors'
-import { ButtonType, ShadowButton } from '../../../components/ShadowButton'
+import { ShadowButton } from '../../../components/ShadowButton'
 import { duration } from '../../../utils/Duration'
 import { Easing } from 'react-native-reanimated'
 import { fonts } from '../../../utils/Fonts'
@@ -16,7 +16,7 @@ export const CARD_HEIGHT_EXPANDED = 270
 export const CARD_HEIGHT = 150
 
 export const PersonalInformation = ({
-  isExpanded, onPress, onPressProject, onPressHistory, onPressSkill, navigation
+  isExpanded, onPress, onPressProject, onPressHistory, onPressSkill
 }) => {
   const uri = 'https://i.natgeofe.com/n/46b07b5e-1264-42e1-ae4b-8a021226e2d0/domestic-cat_thumb_2x3.jpg'
 

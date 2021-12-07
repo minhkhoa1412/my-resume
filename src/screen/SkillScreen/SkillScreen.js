@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { AnimatePresence, MotiText, MotiView } from 'moti'
+import { ScrollView, StyleSheet, View } from 'react-native'
+import { AnimatePresence, MotiView } from 'moti'
 import { ColorHeaderBackground, HEADER_HEIGHT } from '../../components/ColorHeaderBackground'
 import { colors } from '../../utils/Colors'
-import { images } from '../../utils/Images'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { BackButton } from '../../components/BackButton'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { fonts } from '../../utils/Fonts'
-import { duration } from '../../utils/Duration'
 import { myCV } from '../../data/cv'
-import { SkillItem } from './components/SkillItem'
 import { SkillBlock } from './components/SkillBlock'
 
 export const SkillScreen = ({ navigation }) => {

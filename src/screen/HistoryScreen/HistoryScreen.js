@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { ScrollView, StyleSheet, Image, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import { AnimatePresence, MotiView } from 'moti'
 import { ColorHeaderBackground, HEADER_HEIGHT } from '../../components/ColorHeaderBackground'
 import { colors } from '../../utils/Colors'
 import { HistoryItem } from './components/HistoryItem'
 import { myCV } from '../../data/cv'
-import { images } from '../../utils/Images'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { BackButton } from '../../components/BackButton'
 
 export const HistoryScreen = ({ navigation }) => {
   const [isFocus, setIsFocus] = useState(true)
-  const insetAreas = useSafeAreaInsets()
 
   useEffect(() => {
     if (!isFocus) {

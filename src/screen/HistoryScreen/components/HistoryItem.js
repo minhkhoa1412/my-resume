@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Dimensions, StyleSheet, View, Text, Image, Pressable } from 'react-native'
-import { motify, MotiView, useAnimationState } from 'moti'
+import { motify, MotiView } from 'moti'
 import { Easing } from 'react-native-reanimated'
 import { RowContent } from './RowContent'
 import { colors } from '../../../utils/Colors'
