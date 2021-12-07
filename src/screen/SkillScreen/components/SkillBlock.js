@@ -15,7 +15,7 @@ export const SkillBlock = ({ title, skills }) => {
        from={{ opacity: 0, translateY: 100 }}
        exit={{ opacity: 0, translateY: 100 }}
        animate={{ opacity: 1, translateY: 0 }}
-       transition={{ type: 'timing', easing: Easing.bezier(0.25, 0.1, 0.25, 1) }}
+       transition={{ type: 'timing', easing: Easing.bezier(0.25, 0.1, 0.25, 1), delay: 300 }}
        exitTransition={{ type: 'timing', duration: 200, easing: Easing.bezier(0.25, 0.1, 0.25, 1) }}
      >
        {title}
