@@ -10,6 +10,7 @@ import { CardStyleInterpolators, createStackNavigator, TransitionSpecs } from '@
 import { ProjectScreen } from './src/screen/ProjectScreen/ProjectScreen'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { HistoryScreen } from './src/screen/HistoryScreen/HistoryScreen'
+import { SkillScreen } from './src/screen/SkillScreen/SkillScreen'
 
 const Stack = createStackNavigator()
 
@@ -41,6 +42,13 @@ const App = () => {
           <Stack.Screen
             name="History"
             component={HistoryScreen}
+            options={{
+              cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
+            }}
+          />
+          <Stack.Screen
+            name="Skill"
+            component={SkillScreen}
             options={{
               cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
             }}

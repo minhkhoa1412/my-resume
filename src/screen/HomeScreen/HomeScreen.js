@@ -4,7 +4,7 @@ import { CARD_HEIGHT, CARD_HEIGHT_EXPANDED, PersonalInformation } from './compon
 import { FloatingButton } from './components/FloatingButton'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { AnimatePresence, MotiView } from 'moti'
-import { Colors } from '../../utils/Colors'
+import { colors } from '../../utils/Colors'
 import { Summary } from './components/Summary'
 import { duration } from '../../utils/Duration'
 import { HEADER_HEIGHT, ColorHeaderBackground } from '../../components/ColorHeaderBackground'
@@ -30,7 +30,7 @@ export const HomeScreen = ({ navigation }) => {
       setTimeout(() => {
         setIsExpanded(false)
         navigation.navigate(nextScreen.current)
-      }, 1000)
+      }, 850)
     }
   }, [isFocus])
 
@@ -57,6 +57,10 @@ export const HomeScreen = ({ navigation }) => {
                 }}
                 onPressHistory={() => {
                   nextScreen.current = 'History'
+                  setIsFocus(false)
+                }}
+                onPressSkill={() => {
+                  nextScreen.current = 'Skill'
                   setIsFocus(false)
                 }}
               />
@@ -93,7 +97,7 @@ const s = StyleSheet.create({
     left: 0,
     right: 0,
     borderBottomRightRadius: 100,
-    backgroundColor: Colors.accent
+    backgroundColor: colors.accent
   },
   containerPersonalInformation: {
     position: 'absolute',

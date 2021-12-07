@@ -3,10 +3,20 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { myCV } from '../../../data/cv'
 import { MotiText } from 'moti'
 import { duration } from '../../../utils/Duration'
+import { fonts } from '../../../utils/Fonts'
+import { colors } from '../../../utils/Colors'
+import { RFValue } from 'react-native-responsive-fontsize'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export const Summary = () => {
+  const inset = useSafeAreaInsets()
+
   return (
-    <ScrollView style={s.container}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={s.container}
+      contentContainerStyle={{ paddingBottom: inset.bottom + 90 }}
+    >
       <MotiText
         style={s.textTitle}
         from={{ opacity: 0, translateY: 100 }}
@@ -53,14 +63,15 @@ const s = StyleSheet.create({
     flex: 1
   },
   textTitle: {
-    fontSize: 40,
-    fontWeight: '700',
-    color: 'black',
-    marginBottom: 20
+    fontSize: RFValue(36),
+    color: colors.black,
+    marginBottom: 20,
+    fontFamily: fonts.poppinsBold
   },
   textSummary: {
-    fontSize: 20,
-    color: 'black',
-    marginBottom: 10
+    fontSize: RFValue(16),
+    color: colors.textContent,
+    marginBottom: 10,
+    fontFamily: fonts.poppinsRegular
   }
 })

@@ -1,7 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, Pressable } from 'react-native'
-import { Colors } from '../utils/Colors'
+import { colors as systemColors } from '../utils/Colors'
 import LinearGradient from 'react-native-linear-gradient'
+import { fonts } from '../utils/Fonts'
+import { RFValue } from 'react-native-responsive-fontsize'
 
 export const ButtonType = {
   POSITIVE: 1, NEGATIVE: 0
@@ -11,7 +13,7 @@ export const ShadowButton = ({ colors, text, onPress }) => {
   return (
     <Pressable onPress={onPress}>
       <LinearGradient
-        colors={colors ?? Colors.gradientMainScreen}
+        colors={colors ?? systemColors.gradientMainScreen}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={s.button}
@@ -28,8 +30,8 @@ export const ShadowButton = ({ colors, text, onPress }) => {
 
 const s = StyleSheet.create({
   button: {
-    backgroundColor: Colors.accent,
-    paddingHorizontal: 26,
+    backgroundColor: systemColors.accent,
+    paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 20,
     elevation: 5,
@@ -45,7 +47,7 @@ const s = StyleSheet.create({
   },
   textButton: {
     color: 'white',
-    fontSize: 14,
-    fontWeight: 'bold'
+    fontSize: RFValue(12),
+    fontFamily: fonts.poppinsBold
   }
 })

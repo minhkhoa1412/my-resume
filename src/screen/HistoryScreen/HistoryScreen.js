@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Image, TouchableOpacity, View } from 'react-native'
 import { AnimatePresence, MotiView } from 'moti'
 import { ColorHeaderBackground, HEADER_HEIGHT } from '../../components/ColorHeaderBackground'
-import { Colors } from '../../utils/Colors'
+import { colors } from '../../utils/Colors'
 import { HistoryItem } from './components/HistoryItem'
+import { myCV } from '../../data/cv'
+import { images } from '../../utils/Images'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { BackButton } from '../../components/BackButton'
 
 export const HistoryScreen = ({ navigation }) => {
   const [isFocus, setIsFocus] = useState(true)
+  const insetAreas = useSafeAreaInsets()
 
   useEffect(() => {
     if (!isFocus) {
@@ -21,21 +26,18 @@ export const HistoryScreen = ({ navigation }) => {
       <AnimatePresence>
         {isFocus && (
           <MotiView style={s.container}>
-            <ColorHeaderBackground colors={Colors.gradientHistory} />
-            <TouchableOpacity onPress={() => setIsFocus(false)} style={{
-              position: 'absolute',
-              top: 100,
-              left: 100,
-              zIndex: 1
-            }}>
-              <Text>History Screen</Text>
-            </TouchableOpacity>
+            <ColorHeaderBackground title={'Employment History'} colors={colors.gradientHistoryScreen}/>
+            <BackButton
+              onPress={() => setIsFocus(false)}
+            />
 
             <ScrollView
-              contentContainerStyle={[s.scrollView, { marginTop: HEADER_HEIGHT - 70 }]}
+              style={{ flex: 1 }}
+              contentContainerStyle={[s.scrollView, { paddingTop: HEADER_HEIGHT - 70 }]}
             >
-              <HistoryItem />
-              <HistoryItem />
+              {myCV.history.map((item, index) => (
+                <HistoryItem key={item.employer} index={index} item={item}/>
+              ))}
             </ScrollView>
           </MotiView>
         )}
@@ -50,7 +52,11 @@ const s = StyleSheet.create({
     backgroundColor: 'white'
   },
   scrollView: {
-    flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingBottom: 30
+  },
+  iconBack: {
+    width: 25,
+    height: 25
   }
 })

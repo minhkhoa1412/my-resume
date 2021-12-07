@@ -1,10 +1,12 @@
 import React from 'react'
 import { TouchableOpacity, StyleSheet, Text, View, Pressable } from 'react-native'
-import { Colors } from '../../../utils/Colors'
+import { colors } from '../../../utils/Colors'
 import { MotiView } from 'moti'
 import { duration } from '../../../utils/Duration'
+import { fonts } from '../../../utils/Fonts'
+import { RFValue } from 'react-native-responsive-fontsize'
 
-const BUTTON_HEIGHT = 60
+const BUTTON_HEIGHT = RFValue(50)
 
 export const FloatingButton = () => {
   const motiViewSpring = (style, children) => (
@@ -38,7 +40,7 @@ export const FloatingButton = () => {
           alert('test')
         }}
       >
-        {motiViewSpring(s.mainButton, () => (<Text style={s.mainText}>test</Text>))}
+        {motiViewSpring(s.mainButton, () => (<Text style={s.mainText}>Contact me</Text>))}
       </Pressable>
       <Pressable
         onPress={() => {
@@ -62,18 +64,18 @@ const s = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 18,
-    backgroundColor: Colors.accent,
+    backgroundColor: colors.accent,
     height: BUTTON_HEIGHT
   },
   mainText: {
     color: 'white',
-    fontSize: 16,
-    fontWeight: '800'
+    fontSize: RFValue(14),
+    fontFamily: fonts.poppinsBold
   },
   secondaryButton: {
     width: BUTTON_HEIGHT,
     height: BUTTON_HEIGHT,
-    backgroundColor: Colors.gray,
+    backgroundColor: colors.gray,
     borderRadius: 18,
     marginLeft: 16,
     justifyContent: 'center',
