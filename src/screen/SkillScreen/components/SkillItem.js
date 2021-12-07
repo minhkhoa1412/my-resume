@@ -19,11 +19,11 @@ const s = StyleSheet.create({
     borderRadius: 20,
     elevation: 5,
     shadowOffset: {
-      width: 0,
-      height: 3
+      width: 2,
+      height: 6
     },
-    shadowRadius: 6,
-    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    shadowOpacity: 0.1,
     marginRight: 14,
     marginBottom: 14
   },
