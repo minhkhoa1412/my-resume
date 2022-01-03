@@ -21,6 +21,11 @@ const App = () => {
   //   backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   // };
 
+
+  const defaultOptionScreen = {
+    cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
+  }
+
   return (
     <SafeAreaProvider>
       <NavigationContainer>
@@ -28,30 +33,22 @@ const App = () => {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{
-              cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
-            }}
+            options={defaultOptionScreen}
           />
           <Stack.Screen
             name="Project"
             component={ProjectScreen}
-            options={{
-              cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
-            }}
+            options={defaultOptionScreen}
           />
           <Stack.Screen
             name="History"
             component={HistoryScreen}
-            options={{
-              cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
-            }}
+            options={defaultOptionScreen}
           />
           <Stack.Screen
             name="Skill"
             component={SkillScreen}
-            options={{
-              cardStyleInterpolator: CardStyleInterpolators.forNoAnimation
-            }}
+            options={defaultOptionScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
