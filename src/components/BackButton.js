@@ -16,7 +16,7 @@ export const BackButton = ({ onPress }) => {
       exit={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-      onPress={onPress}
+      onPressIn={onPress}
       style={[s.container, { top: insetAreas.top + 30 }]}
     >
       <Image style={s.iconBack} source={images.iconBack} resizeMode="contain"/>
