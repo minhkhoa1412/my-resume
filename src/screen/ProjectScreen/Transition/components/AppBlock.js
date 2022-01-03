@@ -23,6 +23,7 @@ import { PanGestureHandler, ScrollView } from 'react-native-gesture-handler'
 import { BlurView } from '@react-native-community/blur'
 import { Content } from './Content'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import LinearGradient from 'react-native-linear-gradient'
 
 const WINDOW = Dimensions.get('window')
 const THUMBNAIL_HEIGHT = WINDOW.height * 0.4
@@ -236,6 +237,10 @@ const AppBlock = ({
                       flex: 1
                     }]}
                   >
+                    <LinearGradient
+                      colors={['transparent', 'transparent', '#212121']}
+                      style={[{ zIndex: 6}, StyleSheet.absoluteFill]}
+                    />
                     <Image
                       source={{ uri: post.imageUrl }}
                       style={styles.imageStyles}
