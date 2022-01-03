@@ -58,5 +58,20 @@ export const myCV = {
       { id: 10, text: 'Reactive Programming' }, { id: 11, text: 'Functional Programming' },
       { id: 12, text: 'Object Orientation Programming' }
     ]
-  }
+  },
+  project: [
+    {
+      id: 1,
+      projectName: 'PayME Wallet',
+      projectDescription: 'Ví điện tử tối thượng',
+      cover: '',
+      screenshots: [
+        'https://play-lh.googleusercontent.com/vJOXiiQHJ6KylCJ3ggW3GaSPXUt2yYBodKDEftN2YMwtSNwOYkag6KRcyMFYNaH8Ww=w1635-h1308',
+        'https://play-lh.googleusercontent.com/BOadlOigo4rc62hqEZxyaud6iDj7G7AtgdL9tfH9sPX_VWERtq3-9Pprd4lvQHKdI10=w1635-h1308',
+        'https://play-lh.googleusercontent.com/RkEG6-O8EzqCVnkfHJbbHKOYUYVyWmnBPJFY_bcP7MQyLRkt3tzPySuEg5wVowBoeQ=w1635-h1308',
+        'https://play-lh.googleusercontent.com/pGT5Tk8vgT7Hja6eKWU_M2eXdLGknzhEVCCeHrqvyv_nu8UBIcasu-gQtVZbZbwHS-0=w1635-h1308',
+        'https://play-lh.googleusercontent.com/bGuzY-TfFesPcXIoG2DRk70ChsTHm1MUQzLPo58ajHsp5hv-g1qFG8em2pCo6bpRvm5p=w1635-h1308'
+      ]
+    }
+  ]
 }
