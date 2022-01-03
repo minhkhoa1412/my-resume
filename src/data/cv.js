@@ -66,11 +66,12 @@ export const myCV = {
       projectDescription: 'Ví điện tử tối thượng',
       cover: '',
       screenshots: [
-        'https://play-lh.googleusercontent.com/vJOXiiQHJ6KylCJ3ggW3GaSPXUt2yYBodKDEftN2YMwtSNwOYkag6KRcyMFYNaH8Ww=w1635-h1308',
-        'https://play-lh.googleusercontent.com/BOadlOigo4rc62hqEZxyaud6iDj7G7AtgdL9tfH9sPX_VWERtq3-9Pprd4lvQHKdI10=w1635-h1308',
-        'https://play-lh.googleusercontent.com/RkEG6-O8EzqCVnkfHJbbHKOYUYVyWmnBPJFY_bcP7MQyLRkt3tzPySuEg5wVowBoeQ=w1635-h1308',
-        'https://play-lh.googleusercontent.com/pGT5Tk8vgT7Hja6eKWU_M2eXdLGknzhEVCCeHrqvyv_nu8UBIcasu-gQtVZbZbwHS-0=w1635-h1308',
-        'https://play-lh.googleusercontent.com/bGuzY-TfFesPcXIoG2DRk70ChsTHm1MUQzLPo58ajHsp5hv-g1qFG8em2pCo6bpRvm5p=w1635-h1308'
+        'https://play-lh.googleusercontent.com/fNcXOaE3H6_iEJTKJZwCv4phMGL-mJeIW4fYlvN8gRTMKiXgiKSM191FL1tlE75SBuE=w1635-h1308',
+        'https://play-lh.googleusercontent.com/eSXrG0orom5SxwqKHZ8lQl1NlsjLPOeAbSyhxcyvESuL1LABr0y0ahCW79qL9KXW3rCh=w1635-h1308',
+        'https://play-lh.googleusercontent.com/Giseo9vyn6B48Jh58aweUTIhQZuTj1mkApvSdKt1kv9IkAQ0jDDovRjbg0d54UMO4PVL=w1635-h1308',
+        'https://play-lh.googleusercontent.com/0kVUseSBpvuzFIlfPOVDH4WS_EOA3_NASqg3UGPvh25DSZQAb2Bh2MtkLipO-bXiH2o=w1635-h1308',
+        'https://play-lh.googleusercontent.com/z1i0ZRratoh3CbJKpIOdBn9xtCDcJeKfxWHp75l4iGvlUk2e_HDGKBWdZAeaV2arpVw=w1635-h1308',
+        'https://play-lh.googleusercontent.com/_SF4tVGsAkauo7WUZKPvwamTU1XnUOTBP8QTu07E7una3xyxXt-r-mSYzWrSKv7bJg=w1635-h1308',
       ]
     }
   ]

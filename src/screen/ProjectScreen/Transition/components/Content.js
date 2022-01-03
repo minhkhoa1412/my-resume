@@ -28,7 +28,7 @@ export const Content = ({ project }) => {
               <View style={styles.image}>
                 <Image
                   source={{ uri: item }}
-                  resizeMode={"contain"}
+                  resizeMode={'cover'}
                   borderRadius={20}
                   style={{
                     width: 200,
@@ -53,19 +53,19 @@ export const Content = ({ project }) => {
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    paddingVertical: 30,
-    paddingHorizontal: PADDING_HORIZONTAL
+    paddingVertical: 30
   },
   text: {
+    marginHorizontal: PADDING_HORIZONTAL,
     fontSize: Math.min(WINDOW.width * 0.053, 20),
     color: '#989898'
   },
   list: {
-    flex: 1,
+    flex: 1
   },
   image: {
     borderRadius: 20,
-    padding: 20,
+    padding: PADDING_HORIZONTAL,
     overflow: 'hidden',
     elevation: 5,
     shadowOffset: {
@@ -73,6 +73,6 @@ const styles = StyleSheet.create({
       height: 4
     },
     shadowRadius: 10,
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.3
   }
 })
