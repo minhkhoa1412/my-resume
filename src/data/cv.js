@@ -1,3 +1,5 @@
+import { images } from '../utils/Images'
+
 export const myCV = {
   name: 'Thái Minh Khoa',
   role: 'Senior Mobile Engineer',
@@ -62,9 +64,29 @@ export const myCV = {
   project: [
     {
       id: 1,
-      projectName: 'PayME Wallet',
-      projectDescription: 'Ví điện tử tối thượng',
-      cover: '',
+      title: 'PayME Wallet',
+      description: 'Ví điện tử tối thượng',
+      cover: {
+        type: 'local',
+        source: images.payMECover
+      },
+      screenshots: [
+        'https://play-lh.googleusercontent.com/fNcXOaE3H6_iEJTKJZwCv4phMGL-mJeIW4fYlvN8gRTMKiXgiKSM191FL1tlE75SBuE=w1635-h1308',
+        'https://play-lh.googleusercontent.com/eSXrG0orom5SxwqKHZ8lQl1NlsjLPOeAbSyhxcyvESuL1LABr0y0ahCW79qL9KXW3rCh=w1635-h1308',
+        'https://play-lh.googleusercontent.com/Giseo9vyn6B48Jh58aweUTIhQZuTj1mkApvSdKt1kv9IkAQ0jDDovRjbg0d54UMO4PVL=w1635-h1308',
+        'https://play-lh.googleusercontent.com/0kVUseSBpvuzFIlfPOVDH4WS_EOA3_NASqg3UGPvh25DSZQAb2Bh2MtkLipO-bXiH2o=w1635-h1308',
+        'https://play-lh.googleusercontent.com/z1i0ZRratoh3CbJKpIOdBn9xtCDcJeKfxWHp75l4iGvlUk2e_HDGKBWdZAeaV2arpVw=w1635-h1308',
+        'https://play-lh.googleusercontent.com/_SF4tVGsAkauo7WUZKPvwamTU1XnUOTBP8QTu07E7una3xyxXt-r-mSYzWrSKv7bJg=w1635-h1308',
+      ]
+    },
+    {
+      id: 1,
+      title: 'PayME Wallet',
+      description: 'Ví điện tử tối thượng',
+      cover: {
+        type: 'local',
+        source: images.payMECover
+      },
       screenshots: [
         'https://play-lh.googleusercontent.com/fNcXOaE3H6_iEJTKJZwCv4phMGL-mJeIW4fYlvN8gRTMKiXgiKSM191FL1tlE75SBuE=w1635-h1308',
         'https://play-lh.googleusercontent.com/eSXrG0orom5SxwqKHZ8lQl1NlsjLPOeAbSyhxcyvESuL1LABr0y0ahCW79qL9KXW3rCh=w1635-h1308',

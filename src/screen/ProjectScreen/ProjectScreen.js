@@ -6,7 +6,7 @@ import { colors } from '../../utils/Colors'
 import { BackButton } from '../../components/BackButton'
 import Animated, { useAnimatedProps, useSharedValue } from 'react-native-reanimated'
 import AppBlock from './Transition/components/AppBlock'
-import { posts } from './Transition/data/posts'
+import { myCV } from '../../data/cv'
 
 const AnimatedScrollView = Animated.createAnimatedComponent(ScrollView)
 
@@ -53,11 +53,11 @@ export const ProjectScreen = ({ navigation }) => {
                 nestedScrollEnabled
                 showsVerticalScrollIndicator={false}
               >
-                {posts.map((post, index) => (
+                {myCV.project.map((project, index) => (
                   <AppBlock
                     key={index}
                     index={index}
-                    post={post}
+                    project={project}
                     isShowingDetails={isShowingDetails}
                     showingStateChanged={onShowingStateChanged}
                   />

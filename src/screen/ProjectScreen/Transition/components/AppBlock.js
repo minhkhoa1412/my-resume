@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Dimensions, Image, Platform, Pressable, StyleSheet, Text, View } from 'react-native'
 
 import Animated, {
+  Easing,
   Extrapolate,
   interpolate,
   measure,
@@ -15,7 +16,7 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
-  withDelay,
+  withDelay, withRepeat,
   withSpring,
   withTiming
 } from 'react-native-reanimated'
@@ -24,6 +25,8 @@ import { BlurView } from '@react-native-community/blur'
 import { Content } from './Content'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import LinearGradient from 'react-native-linear-gradient'
+import { duration } from '../../../../utils/Duration'
+import { repeat } from 'rxjs'
 
 const WINDOW = Dimensions.get('window')
 const THUMBNAIL_HEIGHT = WINDOW.height * 0.4
@@ -34,9 +37,10 @@ const THUMBNAIL_IMAGE_SCALE_FACTOR = 1.2
 const AnimatedScrollView = Animated.createAnimatedComponent(ScrollView)
 const AnimatedPanGestureHandler = Animated.createAnimatedComponent(PanGestureHandler)
 const AnimatedTextView = Animated.createAnimatedComponent(Text)
+const AnimatedImage = Animated.createAnimatedComponent(Image)
 
 const AppBlock = ({
-  post,
+  project,
   index,
   isShowingDetails,
   showingStateChanged
@@ -59,9 +63,21 @@ const AppBlock = ({
   const scrollViewScrollEnabled = useSharedValue(false)
   const scrollViewBounces = useSharedValue(false)
   const pressedScale = useSharedValue(1)
+  const imageSlideAnimation = useSharedValue(0)
 
   const thumbnailHeight = useSharedValue(THUMBNAIL_HEIGHT)
   const Android_ThumbnailBorderRadiusBottom = useSharedValue(16)  //overflow: 'hidden' not working on android
+
+  useEffect(() => {
+    const { height: IMAGE_HEIGHT } = Image.resolveAssetSource(project.cover.source)
+
+    imageSlideAnimation.value = withRepeat(
+      withTiming(
+        -IMAGE_HEIGHT + THUMBNAIL_HEIGHT, { duration: 10000, easing: Easing.bezier(0.25, 0.1, 0.25, 1) }),
+      999,
+      true
+    )
+  }, [])
 
   const showAppDetails = () => {
     if (isShowingContent.value || showingDetails.value) {
@@ -136,6 +152,15 @@ const AppBlock = ({
   })
   const scrollViewStyles = useAnimatedStyle(() => {
     return { borderRadius: scrollViewBorderRadius.value }
+  })
+  const imageSlideAnimationStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateY: imageSlideAnimation.value
+        }
+      ]
+    }
   })
 
 
@@ -228,7 +253,7 @@ const AppBlock = ({
                         { color: '#FFFFFF' }
                       ]}
                     >
-                      {post.title}
+                      {project.title}
                     </AnimatedTextView>
                   </View>
                   <Animated.View
@@ -239,16 +264,16 @@ const AppBlock = ({
                   >
                     <LinearGradient
                       colors={['transparent', 'transparent', '#212121']}
-                      style={[{ zIndex: 6}, StyleSheet.absoluteFill]}
+                      style={[{ zIndex: 6 }, StyleSheet.absoluteFill]}
                     />
-                    <Image
-                      source={{ uri: post.imageUrl }}
-                      style={styles.imageStyles}
+                    <AnimatedImage
+                      source={project.cover.type === 'local' ? project.cover.source : { uri: project.cover.source }}
+                      style={[styles.imageStyles, imageSlideAnimationStyle]}
                       resizeMode="cover"
                     />
                   </Animated.View>
                   <View style={styles.descriptionWrapper}>
-                    <Text style={[styles.description, { color: '#FFFFFF' }]}>{post.description}</Text>
+                    <Text style={[styles.description, { color: '#FFFFFF' }]}>{project.description}</Text>
                   </View>
                 </Animated.View>
               </Pressable>
@@ -300,7 +325,7 @@ const styles = StyleSheet.create({
     fontWeight: '700'
   },
   imageStyles: {
-    flex: 1,
+    width: '100%',
     zIndex: 5
   },
   descriptionWrapper: {
